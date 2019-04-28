@@ -5,6 +5,7 @@ module.exports = {
     'ts-jest': {
       tsConfig: {
         target: 'es2017',
+        esModuleInterop: true,
       },
     },
   },

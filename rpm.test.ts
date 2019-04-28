@@ -47,5 +47,13 @@ describe('rpm', () => {
 
   it('correctly multplies -100000 and -100000', () => {
     expect(rpm(-100000, -100000)).toBe(10000000000);
-  })
+  });
+
+  it('correctly multplies 100000 and -100000', () => {
+    expect(rpm(100000, -100000)).toBe(-10000000000);
+  });
+
+  it('correctly multplies -100000 and 100000', () => {
+    expect(rpm(-100000, 100000)).toBe(-10000000000);
+  });
 });

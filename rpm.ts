@@ -10,8 +10,6 @@ export default function rpm(x: number, y: number): number {
 
   const rpmResult: number = rpmWorker(multTable);
 
-  console.log(multTable);
-
   if (Math.sign(x) !== Math.sign(y) && rpmResult !== 0) {
     return rpmResult * -1;
   }
