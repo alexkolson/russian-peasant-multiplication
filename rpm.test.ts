@@ -7,7 +7,7 @@ describe('rpm', () => {
   let rightOperand: number;
 
   beforeAll(() => {
-    [leftOperand, rightOperand] = [1, 2].map(() => genRandInt());
+    [leftOperand, rightOperand] = [1, 2].map(genRandInt);
 
     console.log('Randomly generated operands:');
     console.log({
