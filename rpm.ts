@@ -12,7 +12,7 @@ export default function rpm(x: number, y: number): number {
 
   console.log(multTable);
 
-  if (Math.sign(x) ^ Math.sign(y) && rpmResult ^ 0) {
+  if (Math.sign(x) !== Math.sign(y) && rpmResult !== 0) {
     return rpmResult * -1;
   }
 
@@ -41,7 +41,7 @@ const rpmWorker: (multTable: MultTable) => number = (multTable) => {
       }, 0);
   }
 
-  multTable.push([lastRow[0] >> 1, lastRow[1] << 1]);
+  multTable.push([Math.floor(lastRow[0] / 2), lastRow[1] * 2]);
 
   return rpmWorker(multTable);
 };
