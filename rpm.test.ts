@@ -75,4 +75,40 @@ describe('rpm', () => {
   it('correctly multiplies randomly generated left and right operands', () => {
     expect(rpm(leftOperand, rightOperand)).toBe(leftOperand * rightOperand);
   });
+
+  it('calls Array.prototype.push 1 time when multiplying 0 & 0', () => {
+    // We have to cast here because typescript isnt properly detecting that Array.prototype has a 'push' function and
+    // therefore throws an error if we attempt to call spyOn without casting 'push' as jest.FunctionPropertyNames<any[]>.
+    // By casting 'push' this way we are telling typescript/jest that yes, push does indeed exist as a function property
+    // on Array.prototype.
+    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
+
+    rpm(0, 0);
+
+    expect(pushSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls Array.prototype.push 4 times when multiplying 2 and 5', () => {
+    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
+
+    rpm(2, 5);
+
+    expect(pushSpy).toHaveBeenCalledTimes(4);
+  });
+
+  it('calls Array.prototype.push 8 times when multiplying 5 and 2', () => {
+    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
+
+    rpm(5, 2);
+
+    expect(pushSpy).toHaveBeenCalledTimes(8);
+  });
+
+  it('calls Array.prototype.push 4 times when multiplying -2 and 5', () => {
+    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
+
+    rpm(-2, 5);
+
+    expect(pushSpy).toHaveBeenCalledTimes(4);
+  });
 });
