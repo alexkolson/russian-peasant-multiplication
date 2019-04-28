@@ -4,18 +4,25 @@ type MultTable = MultRow[];
 export default function rpm(x: number, y: number): number {
   let multTable: MultTable = [];
 
-  multTable.push([x, y]);
+  const startingRow: MultRow = [Math.abs(x), Math.abs(y)];
 
-  return rpmWorker(multTable);
+  multTable.push(startingRow);
+
+  const rpmResult: number = rpmWorker(multTable);
+
+  console.log(multTable);
+
+  if (Math.sign(x) ^ Math.sign(y) && rpmResult ^ 0) {
+    return rpmResult * -1;
+  }
+
+  return rpmResult;
 }
-
 
 const rpmWorker: (multTable: MultTable) => number = (multTable) => {
   const lastRow: MultRow = multTable[multTable.length - 1];
 
-  console.log(multTable);
-
-  if ([-1, 1, 0].includes(lastRow[0])) {
+  if (lastRow[0] <= 1) {
     return multTable
       .map((row: MultRow): MultRow => {
         let [left, right]: [number, number] = row;
@@ -34,7 +41,7 @@ const rpmWorker: (multTable: MultTable) => number = (multTable) => {
       }, 0);
   }
 
-  multTable.push([Math.floor(lastRow[0] >> 1), lastRow[1] << 1]);
+  multTable.push([lastRow[0] >> 1, lastRow[1] << 1]);
 
   return rpmWorker(multTable);
 };

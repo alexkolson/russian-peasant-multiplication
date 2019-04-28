@@ -43,5 +43,9 @@ describe('rpm', () => {
 
   it('correctly multplies -2 and -5', () => {
     expect(rpm(-2, -5)).toBe(10);
+  });
+
+  it('correctly multplies -100000 and -100000', () => {
+    expect(rpm(-100000, -100000)).toBe(10000000000);
   })
 });
