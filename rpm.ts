@@ -20,11 +20,11 @@ const rpmWorker: (multTable: MultTable) => number = (multTable) => {
       .map((row: MultRow): MultRow => {
         let [left, right]: [number, number] = row;
         right = (() => {
-          if (left % 2 === 0) {
-            return 0;
+          if (left & 1) {
+            return right;
           }
 
-          return right;
+          return 0;
         })();
 
         return [left, right];
@@ -34,7 +34,7 @@ const rpmWorker: (multTable: MultTable) => number = (multTable) => {
       }, 0);
   }
 
-  multTable.push([Math.floor(lastRow[0] / 2), lastRow[1] * 2]);
+  multTable.push([Math.floor(lastRow[0] >> 1), lastRow[1] << 1]);
 
   return rpmWorker(multTable);
 };
