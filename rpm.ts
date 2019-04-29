@@ -23,7 +23,7 @@ const rpmWorker: (multTable: MultTable) => number = (multTable) => {
   if (lastRow[0] <= 1) {
     return multTable
       .map((row: MultRow): MultRow => {
-        let [left, right]: [number, number] = row;
+        let [left, right]: MultRow = row;
         right = (() => {
           if (left & 1) {
             return right;
