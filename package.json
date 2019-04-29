@@ -2,7 +2,7 @@
   "name": "russian-peasant-multiplication",
   "version": "1.0.0",
   "description": "A typescript implementation of russian peasant multiplication",
-  "main": "rpm.js",
+  "main": "rpm.ts",
   "scripts": {
     "test": "jest"
   },
