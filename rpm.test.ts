@@ -98,64 +98,48 @@ describe('rpm', () => {
   });
 
   it('calls Array.prototype.push 3 times when multiplying 2 and 5', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(2, 5);
 
     expect(pushSpy).toHaveBeenCalledTimes(3);
   });
 
   it('calls Array.prototype.push 3 times when multiplying -2 and 5', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(-2, 5);
 
     expect(pushSpy).toHaveBeenCalledTimes(3);
   });
 
   it('calls Array.prototype.push 3 times when multiplying 2 and -5', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(2, -5);
 
     expect(pushSpy).toHaveBeenCalledTimes(3);
   });
 
   it('calls Array.prototype.push 3 times when multiplying -2 and -5', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(-2, -5);
 
     expect(pushSpy).toHaveBeenCalledTimes(3);
   });
 
   it('calls Array.prototype.push 4 times when multiplying 5 and 2', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(5, 2);
 
     expect(pushSpy).toHaveBeenCalledTimes(4);
   });
 
   it('calls Array.prototype.push 4 times when multiplying -5 and 2', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(-5, 2);
 
     expect(pushSpy).toHaveBeenCalledTimes(4);
   });
 
   it('calls Array.prototype.push 4 times when multiplying 5 and -2', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(5, -2);
 
     expect(pushSpy).toHaveBeenCalledTimes(4);
   });
 
   it('calls Array.prototype.push 4 times when multiplying -5 and -2', () => {
-    const pushSpy: (...args: any[]) => number = jest.spyOn(Array.prototype, 'push' as jest.FunctionPropertyNames<any[]>);
-
     rpm(-5, -2);
 
     expect(pushSpy).toHaveBeenCalledTimes(4);
